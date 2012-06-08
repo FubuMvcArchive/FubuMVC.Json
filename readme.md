@@ -6,7 +6,7 @@ The default IJsonReader implementation in FubuMVC simply deserializes your model
 
 Simply install it via NuGet:
 
-> Install-Package EmbeddedMail
+> Install-Package FubuMVC.Json
 
 ### Wait, that's it?
 
