@@ -46,9 +46,6 @@
     <Reference Include="FubuMVC.Media">
       <HintPath>..\packages\FubuMVC.Media.0.9.5.30\lib\net40\FubuMVC.Media.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.StructureMap">
-      <HintPath>..\packages\FubuMVC.References.0.9.5.926\lib\net40\FubuMVC.StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="FubuTestingSupport">
       <HintPath>..\packages\FubuTestingSupport.0.9.3.103\lib\FubuTestingSupport.dll</HintPath>
     </Reference>
