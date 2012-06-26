@@ -16,7 +16,7 @@ namespace FubuMVC.Json.Tests
 			var registry = new FubuRegistry();
 			registry.Services<JsonServiceRegistry>();
 
-			services = registry.BuildGraph().Services;
+			services = BehaviorGraph.BuildFrom(registry).Services;
 		}
 
 		[Test]
