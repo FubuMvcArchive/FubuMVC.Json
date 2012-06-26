@@ -1,4 +1,5 @@
 using FubuCore.Conversion;
+using FubuJson;
 
 namespace FubuMVC.Json.Tests
 {

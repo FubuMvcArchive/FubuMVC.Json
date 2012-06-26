@@ -1,5 +1,7 @@
-﻿using FubuMVC.Core.Behaviors;
+﻿using FubuJson;
+using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Registration;
+using FubuMVC.Core.Runtime;
 
 namespace FubuMVC.Json
 {
@@ -7,8 +9,9 @@ namespace FubuMVC.Json
 	{
 		public JsonServiceRegistry()
 		{
-			ReplaceService<IJsonReader, NewtonSoftJsonReader>();
 			SetServiceIfNone<IJsonSerializer, NewtonSoftJsonSerializer>();
+			ReplaceService<IJsonReader, NewtonSoftJsonReader>();
+			ReplaceService<IJsonWriter, NewtonSoftJsonWriter>();
 		}
 	}
 }

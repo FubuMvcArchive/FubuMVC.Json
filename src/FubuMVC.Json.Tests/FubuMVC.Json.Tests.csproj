@@ -37,6 +37,9 @@
     <Reference Include="FubuCore">
       <HintPath>..\packages\FubuCore.0.9.9.157\lib\FubuCore.dll</HintPath>
     </Reference>
+    <Reference Include="FubuJson">
+      <HintPath>..\packages\FubuJson.0.1.0.3\lib\net40\FubuJson.dll</HintPath>
+    </Reference>
     <Reference Include="FubuLocalization">
       <HintPath>..\packages\FubuLocalization.0.9.5.52\lib\FubuLocalization.dll</HintPath>
     </Reference>
@@ -97,10 +100,10 @@
     <Compile Include="JObjectValuesTester.cs" />
     <Compile Include="NewtonSoftBindingReaderTester.cs" />
     <Compile Include="NewtonSoftJsonReaderTester.cs" />
+    <Compile Include="NewtonSoftJsonWriterTester.cs" />
     <Compile Include="ParentType.cs" />
     <Compile Include="ServicesRegistrationTester.cs" />
-    <Compile Include="when_deserializing_an_object.cs" />
-    <Compile Include="when_serializing_an_object.cs" />
+    <Compile Include="when_rendering_json_from_a_model_object_with_overriden_output_mimetype.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FubuMVC.Json\FubuMVC.Json.csproj">
@@ -109,7 +112,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
