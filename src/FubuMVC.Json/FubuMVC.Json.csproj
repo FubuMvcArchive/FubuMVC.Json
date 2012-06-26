@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="FubuJsonConverter.cs" />
     <Compile Include="IJsonSerializer.cs" />
+    <Compile Include="JsonServiceRegistry.cs" />
     <Compile Include="NewtonsoftJsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JObjectValues.cs" />

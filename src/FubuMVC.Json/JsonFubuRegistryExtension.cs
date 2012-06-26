@@ -1,17 +1,12 @@
 ﻿using FubuMVC.Core;
-using FubuMVC.Core.Behaviors;
 
 namespace FubuMVC.Json
 {
-	public class JsonFubuRegistryExtension : FubuRegistry
+	public class JsonFubuRegistryExtension : IFubuRegistryExtension
 	{
-		public JsonFubuRegistryExtension()
+		public void Configure(FubuRegistry registry)
 		{
-			Services(x =>
-			         	{
-			         		x.ReplaceService<IJsonReader, NewtonSoftJsonReader>();
-			         		x.AddService<IJsonSerializer, NewtonSoftJsonSerializer>();
-			         	});
+			registry.Services<JsonServiceRegistry>();
 		}
 	}
 }
