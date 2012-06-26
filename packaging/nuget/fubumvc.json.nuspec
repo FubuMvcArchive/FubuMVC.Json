@@ -18,6 +18,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\build\FubuMVC.Json.*" target="lib" />
+    <file src="..\..\src\FubuMVC.Json\bin\release\FubuMVC.Json.*" target="lib\net40" />
   </files>
 </package>
