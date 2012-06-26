@@ -7,7 +7,11 @@ namespace FubuMVC.Json
 	{
 		public JsonFubuRegistryExtension()
 		{
-			Services(x => x.ReplaceService<IJsonReader, NewtonSoftJsonReader>());
+			Services(x =>
+			         	{
+			         		x.ReplaceService<IJsonReader, NewtonSoftJsonReader>();
+			         		x.AddService<IJsonSerializer, NewtonSoftJsonSerializer>();
+			         	});
 		}
 	}
 }

@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Http;
-using Newtonsoft.Json;
 
 namespace FubuMVC.Json
 {
@@ -11,31 +9,23 @@ namespace FubuMVC.Json
     {
     	private readonly IStreamingData _data;
         private readonly IRequestHeaders _headers;
-        private readonly IEnumerable<JsonConverter> _converters;
+    	private readonly IJsonSerializer _serializer;
 
-        public NewtonSoftJsonReader(IStreamingData data, IRequestHeaders headers, IEnumerable<JsonConverter> converters)
+        public NewtonSoftJsonReader(IStreamingData data, IRequestHeaders headers, IJsonSerializer serializer)
         {
         	_data = data;
             _headers = headers;
-            _converters = converters;
+        	_serializer = serializer;
         }
 
         public T Read<T>()
         {
             string inputText = GetInputText();
-
-            var serializer = new JsonSerializer(){
-                TypeNameHandling = TypeNameHandling.All
-            };
-
-            serializer.Converters.AddRange(_converters);
-            var stringReader = new StringReader(inputText);
-            var jsonReader = new JsonTextReader(stringReader);
-            var returnValue = serializer.Deserialize<T>(jsonReader);
-            return returnValue;
+        	return _serializer.Deserialize<T>(inputText);
         }
 
-        public string GetInputText()
+		// Leave this here for testing
+        public virtual string GetInputText()
         {
 			Encoding encoding = Encoding.UTF8;
             _headers.Value<string>(HttpRequestHeaders.ContentEncoding, x => encoding = Encoding.GetEncoding(x));
