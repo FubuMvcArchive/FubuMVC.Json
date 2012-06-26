@@ -9,7 +9,7 @@
     <projectUrl>http://mvc.fubu-project.org/</projectUrl>
     <iconUrl>https://github.com/DarthFubuMVC/fubu-collateral/raw/master/Icons/FubuMvc_256.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A FubuMVC implementation of FubuValidation</description>
+    <description>JSON.NET adapters for FubuMVC to bring the power of model-binding to JSON usage.</description>
     <tags>fubumvc json modelbinding</tags>
     <dependencies>
       <dependency id="FubuMVC.References" version="0.9.6.952" />
