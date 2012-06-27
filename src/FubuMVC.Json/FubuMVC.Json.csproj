@@ -78,12 +78,7 @@
     <Compile Include="JsonServiceRegistry.cs" />
     <Compile Include="NewtonSoftJsonWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="JObjectValues.cs" />
-    <Compile Include="JTokenKeyValuePairExtensions.cs" />
-    <Compile Include="NewtonsoftBindingNode.cs" />
-    <Compile Include="NewtonSoftBindingReader.cs" />
     <Compile Include="NewtonSoftJsonReader.cs" />
-    <Compile Include="NewtonSoftReaderNode.cs" />
     <Compile Include="JsonFubuRegistryExtension.cs" />
   </ItemGroup>
   <ItemGroup>

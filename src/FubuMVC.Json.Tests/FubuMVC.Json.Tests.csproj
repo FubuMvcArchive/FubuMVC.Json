@@ -97,9 +97,6 @@
     <Compile Include="AssemblyNeedsTheFubuModuleAttribute.cs" />
     <Compile Include="ComplexType.cs" />
     <Compile Include="ComplexTypeConverter.cs" />
-    <Compile Include="JObjectValuesTester.cs" />
-    <Compile Include="NewtonSoftBindingReaderTester.cs" />
-    <Compile Include="NewtonSoftJsonReaderTester.cs" />
     <Compile Include="NewtonSoftJsonWriterTester.cs" />
     <Compile Include="ParentType.cs" />
     <Compile Include="ServicesRegistrationTester.cs" />

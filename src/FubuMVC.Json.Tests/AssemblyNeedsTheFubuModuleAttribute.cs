@@ -11,7 +11,7 @@ namespace FubuMVC.Json.Tests
 		[Test]
 		public void the_attribute_exists()
 		{
-			var assembly = typeof(NewtonSoftBindingNode).Assembly;
+			var assembly = typeof(NewtonSoftJsonReader).Assembly;
 
 			assembly.GetCustomAttributes(typeof(FubuModuleAttribute), true)
 				.Any().ShouldBeTrue();
