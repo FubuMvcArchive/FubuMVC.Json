@@ -37,7 +37,7 @@
       <HintPath>..\packages\FubuCore.0.9.9.179\lib\FubuCore.dll</HintPath>
     </Reference>
     <Reference Include="FubuJson">
-      <HintPath>..\packages\FubuJson.0.2.0.6\lib\net40\FubuJson.dll</HintPath>
+      <HintPath>..\packages\FubuJson.0.2.0.112\lib\net40\FubuJson.dll</HintPath>
     </Reference>
     <Reference Include="FubuLocalization">
       <HintPath>..\packages\FubuLocalization.0.9.5.77\lib\FubuLocalization.dll</HintPath>
@@ -46,7 +46,7 @@
       <HintPath>..\packages\FubuMVC.References.0.9.8.1150\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Media">
-      <HintPath>..\packages\FubuMVC.Media.0.9.5.30\lib\net40\FubuMVC.Media.dll</HintPath>
+      <HintPath>..\packages\FubuMVC.Media.0.9.5.116\lib\net40\FubuMVC.Media.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.StructureMap">
       <HintPath>..\packages\FubuMVC.References.0.9.8.1150\lib\net40\FubuMVC.StructureMap.dll</HintPath>
