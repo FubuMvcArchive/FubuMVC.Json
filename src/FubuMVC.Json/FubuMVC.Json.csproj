@@ -31,25 +31,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bottles">
-      <HintPath>..\packages\Bottles.0.9.1.376\lib\Bottles.dll</HintPath>
+      <HintPath>..\packages\Bottles.0.9.5.388\lib\Bottles.dll</HintPath>
     </Reference>
     <Reference Include="FubuCore">
-      <HintPath>..\packages\FubuCore.0.9.9.192\lib\FubuCore.dll</HintPath>
+      <HintPath>..\packages\FubuCore.0.9.9.204\lib\FubuCore.dll</HintPath>
     </Reference>
     <Reference Include="FubuJson">
-      <HintPath>..\packages\FubuJson.0.2.0.166\lib\net40\FubuJson.dll</HintPath>
+      <HintPath>..\packages\FubuJson.0.2.0.178\lib\net40\FubuJson.dll</HintPath>
     </Reference>
     <Reference Include="FubuLocalization">
-      <HintPath>..\packages\FubuLocalization.0.9.5.85\lib\FubuLocalization.dll</HintPath>
+      <HintPath>..\packages\FubuLocalization.0.9.5.97\lib\FubuLocalization.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Core">
-      <HintPath>..\packages\FubuMVC.Core.0.9.8.1219\lib\net40\FubuMVC.Core.dll</HintPath>
+      <HintPath>..\packages\FubuMVC.Core.0.9.8.1252\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Media">
-      <HintPath>..\packages\FubuMVC.Media.0.9.5.203\lib\net40\FubuMVC.Media.dll</HintPath>
+      <HintPath>..\packages\FubuMVC.Media.0.9.5.214\lib\net40\FubuMVC.Media.dll</HintPath>
     </Reference>
     <Reference Include="HtmlTags">
-      <HintPath>..\packages\HtmlTags.1.2.0.121\lib\4.0\HtmlTags.dll</HintPath>
+      <HintPath>..\packages\HtmlTags.1.2.0.122\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
