@@ -75,7 +75,7 @@
     <Compile Include="NewtonsoftBindingNode.cs" />
     <Compile Include="NewtonSoftBindingReader.cs" />
     <Compile Include="NewtonSoftJsonReader.cs" />
-    <Compile Include="NewtonSoftReaderNode.cs" />
+    <Compile Include="NewtonsoftReaderNode.cs" />
     <Compile Include="JsonFubuRegistryExtension.cs" />
   </ItemGroup>
   <ItemGroup>
