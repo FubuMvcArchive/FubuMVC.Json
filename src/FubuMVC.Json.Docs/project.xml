@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ProjectRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TagLine>JSON.NET adapters for FubuMVC to bring the power of model-binding to JSON usage</TagLine>
+  <Name>FubuMVC.Json</Name>
+  <GitHubPage>http://github.com/DarthFubuMVC/FubuMVC.Json</GitHubPage>
+  <UserGroupUrl>https://groups.google.com/forum/?fromgroups#!forum/fubumvc-devel</UserGroupUrl>
+  <BuildServerUrl>http://build.fubu-project.org/project.html?projectId=project19&amp;tab=projectOverview</BuildServerUrl>
+  <BottleName>FubuMVC.Json.Docs</BottleName>
+  <TeamCityBuildType>bt30</TeamCityBuildType>
+  <Nugets>
+    <PublishedNuget>
+      <Name>FubuMVC.Json</Name>
+      <Description>JSON.NET adapters for FubuMVC to bring the power of model-binding to JSON usage.</Description>
+    </PublishedNuget>
+  </Nugets>
+  <Url>fubumvc.json</Url>
+</ProjectRoot>
