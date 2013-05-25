@@ -56,3 +56,5 @@ deployment/bottles/*.zip
 deploymentplan.html
 deployment
 !docs/source/topics/deployment
+logs
+Gemfile.lock
