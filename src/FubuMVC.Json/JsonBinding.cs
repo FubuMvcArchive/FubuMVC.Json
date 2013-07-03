@@ -2,7 +2,7 @@
 
 namespace FubuMVC.Json
 {
-    public class ApplyJsonBinding : IFubuRegistryExtension
+    public class JsonBinding : IFubuRegistryExtension
     {
         public void Configure(FubuRegistry registry)
         {

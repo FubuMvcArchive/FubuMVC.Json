@@ -78,7 +78,7 @@
     <Compile Include="NewtonSoftBindingReader.cs" />
     <Compile Include="NewtonSoftJsonReader.cs" />
     <Compile Include="NewtonsoftReaderNode.cs" />
-    <Compile Include="ApplyJsonBinding.cs" />
+    <Compile Include="JsonBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ripple.dependencies.config">
