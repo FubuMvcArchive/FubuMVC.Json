@@ -92,6 +92,7 @@
     <Compile Include="ComplexType.cs" />
     <Compile Include="ComplexTypeConverter.cs" />
     <Compile Include="JObjectValuesTester.cs" />
+    <Compile Include="JsonBindingSettingsTester.cs" />
     <Compile Include="NewtonSoftBindingReaderTester.cs" />
     <Compile Include="NewtonSoftJsonReaderTester.cs" />
     <Compile Include="NewtonSoftJsonWriterTester.cs" />

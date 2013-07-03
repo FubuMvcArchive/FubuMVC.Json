@@ -11,7 +11,8 @@ namespace FubuMVC.Json
     {
         private readonly JObject _jObject;
 
-        public JObjectValues(string json) : this(JObject.Parse(json))
+        public JObjectValues(string json)
+            : this(JObject.Parse(json))
         {
         }
 
@@ -35,7 +36,9 @@ namespace FubuMVC.Json
             return false;
         }
 
-        private TReturn find<T, TReturn>(string key, Func<T, TReturn> creator) where T : JToken where TReturn : class
+        private TReturn find<T, TReturn>(string key, Func<T, TReturn> creator)
+            where T : JToken
+            where TReturn : class
         {
             JToken token = null;
             _jObject.TryGetValue(key, out token);
@@ -107,7 +110,8 @@ namespace FubuMVC.Json
 
         public bool Value(string key, Action<BindingValue> callback)
         {
-            return with<JValue>(key, v => callback(new BindingValue{
+            return with<JValue>(key, v => callback(new BindingValue
+            {
                 RawKey = key,
                 RawValue = v.Value<string>(),
                 Source = Provenance

@@ -3,7 +3,7 @@ using FubuCore.Binding;
 
 namespace FubuMVC.Json
 {
-	public class NewtonSoftBindingReader<T> : FubuMVC.Core.Resources.Conneg.IReader<T>
+    public class NewtonSoftBindingReader<T> : Core.Resources.Conneg.IReader<T>
     {
         private readonly NewtonSoftJsonReader _reader;
         private readonly IObjectResolver _resolver;
@@ -34,7 +34,7 @@ namespace FubuMVC.Json
         {
             var values = new JObjectValues(json);
 
-            return (T) _resolver.BindModel(typeof (T), values).Value;
+            return (T)_resolver.BindModel(typeof(T), values).Value;
         }
 
         public T Read(string mimeType)

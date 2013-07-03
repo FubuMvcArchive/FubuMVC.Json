@@ -5,13 +5,13 @@ using FubuMVC.Core.Runtime;
 
 namespace FubuMVC.Json
 {
-	public class JsonServiceRegistry : ServiceRegistry
-	{
-		public JsonServiceRegistry()
-		{
-			SetServiceIfNone<IJsonSerializer, NewtonSoftJsonSerializer>();
-			ReplaceService<IJsonReader, NewtonSoftJsonReader>();
-			ReplaceService<IJsonWriter, NewtonSoftJsonWriter>();
-		}
-	}
+    public class JsonServiceRegistry : ServiceRegistry
+    {
+        public JsonServiceRegistry()
+        {
+            SetServiceIfNone<IJsonSerializer, NewtonSoftJsonSerializer>();
+            ReplaceService<IJsonReader, NewtonSoftJsonReader>();
+            ReplaceService<IJsonWriter, NewtonSoftJsonWriter>();
+        }
+    }
 }
