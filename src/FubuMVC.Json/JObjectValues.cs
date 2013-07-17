@@ -110,10 +110,19 @@ namespace FubuMVC.Json
 
         public bool Value(string key, Action<BindingValue> callback)
         {
-            return with<JValue>(key, v => callback(new BindingValue
+            var found = with<JValue>(key, v => callback(new BindingValue
             {
                 RawKey = key,
                 RawValue = v.Value<string>(),
+                Source = Provenance
+            }));
+
+            if (found) return true;
+
+            return with<JObject>(key, v => callback(new BindingValue
+            {
+                RawKey = key,
+                RawValue = v,
                 Source = Provenance
             }));
         }

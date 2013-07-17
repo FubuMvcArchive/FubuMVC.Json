@@ -15,17 +15,27 @@ namespace FubuMVC.Json
         public void Configure(BehaviorGraph graph)
         {
             var settings = graph.Settings.Get<JsonBindingSettings>();
-            var filter = settings.ExcludeChains.As<IChainFilter>();
+            var filter = settings.Include.As<IChainFilter>();
 
             graph
                 .Behaviors
-                .Where(x => !filter.Matches(x))
+                .Where(filter.Matches)
                 .Each(chain =>
                 {
                     chain.ApplyConneg();
-                    chain.Output.AddFormatter<JsonFormatter>();
+                    //chain.Output.AddFormatter<JsonFormatter>();
 
-                    chain.Input.ClearAll();
+                    var defaultJson = chain
+                        .Input
+                        .Readers
+                        .OfType<ReadWithFormatter>()
+                        .SingleOrDefault(x => x.FormatterType == typeof (JsonFormatter));
+
+                    if (defaultJson != null)
+                    {
+                        defaultJson.Remove();
+                    }
+
                     chain.Input.Readers.Prepend(new NewtonSoftReaderNode(chain.InputType()));
                 });
         }

@@ -8,22 +8,22 @@ namespace FubuMVC.Json
     [ApplicationLevel]
     public class JsonBindingSettings
     {
-        private readonly ChainPredicate _exclusions = new ChainPredicate();
+        private readonly ChainPredicate _inclusions = new ChainPredicate();
 
         public JsonBindingSettings()
         {
-            _exclusions.Matching<IgnoreJsonBindingFilter>();
-            _exclusions.Matching<IgnoreNonHttpPostRoutesFilter>();
+            _inclusions.Matching<JsonBindingAttributeFilter>();
+            //_inclusions.Matching<IgnoreNonHttpPostRoutesFilter>();
         }
 
-        public ChainPredicate ExcludeChains
+        public ChainPredicate Include
         {
-            get { return _exclusions; }
+            get { return _inclusions; }
         }
 
-        public bool ShouldBeExcluded(BehaviorChain chain)
+        public bool ShouldBeIncluded(BehaviorChain chain)
         {
-            return _exclusions.As<IChainFilter>().Matches(chain);
+            return _inclusions.As<IChainFilter>().Matches(chain);
         }
     }
 }

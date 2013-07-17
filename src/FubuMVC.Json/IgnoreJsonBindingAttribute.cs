@@ -8,39 +8,28 @@ using FubuMVC.Core.Registration.Policies;
 namespace FubuMVC.Json
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class IgnoreJsonBindingAttribute : Attribute
+    public class JsonBindingAttribute : Attribute
     { 
     }
 
-    [Title("Any action with the [IgnoreJsonBinding] attribute")]
-    public class IgnoreJsonBindingFilter : IChainFilter
+    [Title("Any action with the [JsonBinding] attribute")]
+    public class JsonBindingAttributeFilter : IChainFilter
     {
         public bool Matches(BehaviorChain chain)
         {
-            return chain.Calls.Any(ActionIsExempted);
+            return chain.Calls.Any(ActionIsIncluded);
         }
 
-        public static bool ActionIsExempted(ActionCall call)
+        public static bool ActionIsIncluded(ActionCall call)
         {
-            if (call.HasAttribute<IgnoreJsonBindingAttribute>()) return true;
+            if (call.HasAttribute<JsonBindingAttribute>()) return true;
 
-            if (call.InputType() != null && call.InputType().HasAttribute<IgnoreJsonBindingAttribute>())
+            if (call.InputType() != null && call.InputType().HasAttribute<JsonBindingAttribute>())
             {
                 return true;
             }
 
             return false;
-        }
-    }
-
-    [Title("Any action that does not respond to an HTTP POST")]
-    public class IgnoreNonHttpPostRoutesFilter : IChainFilter
-    {
-        public bool Matches(BehaviorChain chain)
-        {
-            if (chain.Route == null) return false;
-
-            return !chain.Route.RespondsToMethod("POST");
         }
     }
 }

@@ -17,36 +17,25 @@ namespace FubuMVC.Json.Tests
         }
 
         [Test]
-        public void excludes_for_gets_always_false_with_no_exclusions()
+        public void not_included_without_attribute_by_default()
         {
             var graph = BehaviorGraph.BuildFrom(x => x.Actions.IncludeType<JsonBindingEndpoint>());
             var chain = graph.BehaviorFor<JsonBindingEndpoint>(x => x.get_something());
 
             new JsonBindingSettings()
-                .ShouldBeExcluded(chain)
-                .ShouldBeTrue();
+                .ShouldBeIncluded(chain)
+                .ShouldBeFalse();
         }
 
         [Test]
-        public void automatically_excludes_the_IgnoreJsonBinding_attribute()
-        {
-            var graph = BehaviorGraph.BuildFrom(x => x.Actions.IncludeType<JsonBindingEndpoint>());
-            var chain = graph.BehaviorFor<JsonBindingEndpoint>(x => x.post_something_ignore());
-
-            new JsonBindingSettings()
-                .ShouldBeExcluded(chain)
-                .ShouldBeTrue();
-        }
-
-        [Test]
-        public void custom_exclude()
+        public void includes_actions_with_the_JsonBinding_attribute()
         {
             var graph = BehaviorGraph.BuildFrom(x => x.Actions.IncludeType<JsonBindingEndpoint>());
             var chain = graph.BehaviorFor<JsonBindingEndpoint>(x => x.post_something());
 
-            var settings = new JsonBindingSettings();
-            settings.ExcludeChains.ChainMatches(x => x.FirstCall().Method.Name == "post_something");
-            settings.ShouldBeExcluded(chain).ShouldBeTrue();
+            new JsonBindingSettings()
+                .ShouldBeIncluded(chain)
+                .ShouldBeTrue();
         }
     }
 
@@ -57,12 +46,12 @@ namespace FubuMVC.Json.Tests
             throw new NotImplementedException();
         }
 
+        [JsonBinding]
         public string post_something()
         {
             throw new NotImplementedException();
         }
-
-        [IgnoreJsonBinding]
+        
         public string post_something_ignore()
         {
             throw new NotImplementedException();
