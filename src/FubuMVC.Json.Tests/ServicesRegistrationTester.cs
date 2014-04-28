@@ -22,23 +22,12 @@ namespace FubuMVC.Json.Tests
 		}
 
 		[Test]
-		public void NewtonSoftJsonReader_is_registered()
-		{
-			services.DefaultServiceFor<IJsonReader>()
-				.Type.ShouldEqual(typeof(NewtonSoftJsonReader));
-		}
-
-		[Test]
 		public void NewtonSoftJsonSerializer_is_registered()
 		{
 			services.DefaultServiceFor(typeof(IJsonSerializer))
 				.Type.ShouldEqual(typeof(NewtonSoftJsonSerializer));
 		} 
 
-		public void NewtonSoftJsonWriter_is_registered()
-		{
-			services.DefaultServiceFor(typeof (IJsonWriter))
-				.Type.ShouldEqual(typeof (NewtonSoftJsonWriter));
-		}
+
 	}
 }

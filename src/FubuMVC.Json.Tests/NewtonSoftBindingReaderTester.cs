@@ -1,4 +1,5 @@
 using FubuCore.Binding;
+using FubuMVC.Core;
 using NUnit.Framework;
 using FubuTestingSupport;
 using System.Linq;
@@ -15,9 +16,11 @@ namespace FubuMVC.Json.Tests
         {
             var json = "{Name:'Max', Age:8, Nested:{Order:5}, Array:[{Order:0}, {Order:1}, {Order:2}]}".Replace("'", "\"");
 
-            var reader = new NewtonSoftBindingReader<JsonTarget>(null, ObjectResolver.Basic());
+            var reader = new NewtonSoftBindingReader<JsonTarget>();
 
-            theResult = reader.ReadFromJson(json);
+            Assert.Fail("Turn into an integration test");
+
+            //theResult = reader.Read("text/json", new FubuRequestContext())
         }
 
         [Test]

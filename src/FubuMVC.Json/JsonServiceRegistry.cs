@@ -10,8 +10,6 @@ namespace FubuMVC.Json
         public JsonServiceRegistry()
         {
             SetServiceIfNone<IJsonSerializer, NewtonSoftJsonSerializer>();
-            ReplaceService<IJsonReader, NewtonSoftJsonReader>();
-            ReplaceService<IJsonWriter, NewtonSoftJsonWriter>();
         }
     }
 }

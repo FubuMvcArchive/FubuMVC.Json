@@ -5,16 +5,11 @@ using FubuMVC.Core.Registration.Policies;
 
 namespace FubuMVC.Json
 {
+    // TODO -- make this local
     [ApplicationLevel]
     public class JsonBindingSettings
     {
         private readonly ChainPredicate _inclusions = new ChainPredicate();
-
-        public JsonBindingSettings()
-        {
-            _inclusions.Matching<JsonBindingAttributeFilter>();
-            //_inclusions.Matching<IgnoreNonHttpPostRoutesFilter>();
-        }
 
         public ChainPredicate Include
         {

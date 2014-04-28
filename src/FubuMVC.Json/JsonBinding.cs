@@ -1,4 +1,6 @@
 ﻿using FubuMVC.Core;
+using FubuMVC.Core.Http;
+using FubuMVC.Core.Runtime;
 
 namespace FubuMVC.Json
 {
@@ -6,7 +8,15 @@ namespace FubuMVC.Json
     {
         public void Configure(FubuRegistry registry)
         {
-            registry.Policies.Add<ApplyJsonBindingPolicy>();
+            registry.Policies.Global.Add<ApplyJsonBindingPolicy>();
+
+            registry.AlterSettings<ConnegSettings>(x => {
+                var @default = x.FormatterFor(MimeType.Json);
+                x.Formatters.Remove(@default);
+
+                x.AddFormatter(new NewtonsoftJsonFormatter());
+            });
+
             registry.Services<JsonServiceRegistry>();
         }
     }

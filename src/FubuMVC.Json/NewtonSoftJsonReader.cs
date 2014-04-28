@@ -6,16 +6,14 @@ using FubuMVC.Core.Http;
 
 namespace FubuMVC.Json
 {
-    public class NewtonSoftJsonReader : IJsonReader
+    public class NewtonSoftJsonReader
     {
-        private readonly IStreamingData _data;
-        private readonly IRequestHeaders _headers;
+        private readonly IHttpRequest _request;
         private readonly IJsonSerializer _serializer;
 
-        public NewtonSoftJsonReader(IStreamingData data, IRequestHeaders headers, IJsonSerializer serializer)
+        public NewtonSoftJsonReader(IHttpRequest request, IJsonSerializer serializer)
         {
-            _data = data;
-            _headers = headers;
+            _request = request;
             _serializer = serializer;
         }
 
@@ -29,10 +27,18 @@ namespace FubuMVC.Json
         public virtual string GetInputText()
         {
             Encoding encoding = Encoding.UTF8;
-            _headers.Value<string>(HttpGeneralHeaders.ContentEncoding, x => encoding = Encoding.GetEncoding(x));
-            _headers.Value<string>("x-encoding", x => encoding = Encoding.GetEncoding(x));
+            if (_request.HasHeader(HttpGeneralHeaders.ContentEncoding))
+            {
+                encoding = Encoding.GetEncoding(_request.GetSingleHeader(HttpGeneralHeaders.ContentEncoding));
+            }
 
-            var reader = new StreamReader(_data.Input, encoding);
+            if (_request.HasHeader("x-encoding"))
+            {
+                encoding = Encoding.GetEncoding(_request.GetSingleHeader("x-encoding"));
+            }
+
+
+            var reader = new StreamReader(_request.Input, encoding);
 
             return reader.ReadToEnd();
         }
