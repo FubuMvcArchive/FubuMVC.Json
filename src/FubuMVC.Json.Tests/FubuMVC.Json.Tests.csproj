@@ -118,6 +118,7 @@
     <Compile Include="NewtonSoftBindingReaderTester.cs" />
     <Compile Include="NewtonSoftJsonReaderTester.cs" />
     <Compile Include="ParentType.cs" />
+    <Compile Include="replaces_the_json_formatter.cs" />
     <Compile Include="ServicesRegistrationTester.cs" />
   </ItemGroup>
   <ItemGroup>

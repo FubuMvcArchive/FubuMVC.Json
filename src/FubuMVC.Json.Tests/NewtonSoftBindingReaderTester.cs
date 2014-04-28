@@ -1,5 +1,8 @@
 using FubuCore.Binding;
 using FubuMVC.Core;
+using FubuMVC.Core.Http.Hosting;
+using FubuMVC.Katana;
+using FubuMVC.StructureMap;
 using NUnit.Framework;
 using FubuTestingSupport;
 using System.Linq;
@@ -16,12 +19,22 @@ namespace FubuMVC.Json.Tests
         {
             var json = "{Name:'Max', Age:8, Nested:{Order:5}, Array:[{Order:0}, {Order:1}, {Order:2}]}".Replace("'", "\"");
 
-            var reader = new NewtonSoftBindingReader<JsonTarget>();
+            JsonTargetEndpoint.LastTarget = null;
 
-            Assert.Fail("Turn into an integration test");
+            using (var server = FubuApplication.DefaultPolicies().StructureMap().RunInMemory())
+            {
+                server.Scenario(_ => {
+                    _.Post.Input<JsonTarget>();
+                    _.Request.Body.JsonInputIs(json);
+                    _.Request.ContentType("text/json");
 
-            //theResult = reader.Read("text/json", new FubuRequestContext())
+                });
+            }
+
+            theResult = JsonTargetEndpoint.LastTarget;
         }
+
+
 
         [Test]
         public void can_read_basic_properties()
@@ -41,6 +54,19 @@ namespace FubuMVC.Json.Tests
         {
             theResult.Array.Select(x => x.Order)
                 .ShouldHaveTheSameElementsAs(0, 1, 2);
+        }
+    }
+
+    public class JsonTargetEndpoint
+    {
+        public static JsonTarget LastTarget;
+
+        [JsonBinding]
+        public string post_json_target(JsonTarget target)
+        {
+            LastTarget = target;
+
+            return "ok";
         }
     }
 

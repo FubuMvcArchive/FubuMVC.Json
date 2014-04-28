@@ -28,12 +28,17 @@ namespace FubuMVC.Json.Tests
         }
 
         [Test]
-        public void includes_actions_with_the_JsonBinding_attribute()
+        public void can_customize_the_binding_filter()
         {
-            var graph = BehaviorGraph.BuildFrom(x => x.Actions.IncludeType<JsonBindingEndpoint>());
-            var chain = graph.BehaviorFor<JsonBindingEndpoint>(x => x.post_something());
+            var graph = BehaviorGraph.BuildFrom(x => {
+                x.Actions.IncludeType<JsonBindingEndpoint>();
+            });
 
-            new JsonBindingSettings()
+            var chain = graph.BehaviorFor<JsonBindingEndpoint>(x => x.post_something(null));
+
+            var settings = new JsonBindingSettings();
+            settings.Include.AnyActionMatches(a => a.HasAttribute<JsonMarkerAttribute>());
+            settings
                 .ShouldBeIncluded(chain)
                 .ShouldBeTrue();
         }
@@ -46,8 +51,8 @@ namespace FubuMVC.Json.Tests
             throw new NotImplementedException();
         }
 
-        [JsonBinding]
-        public string post_something()
+        [JsonMarker]
+        public string post_something(JsonBindingInput input)
         {
             throw new NotImplementedException();
         }
@@ -57,4 +62,11 @@ namespace FubuMVC.Json.Tests
             throw new NotImplementedException();
         }
     }
+
+    public class JsonMarkerAttribute : Attribute
+    {
+        
+    }
+
+    public class JsonBindingInput{}
 }
